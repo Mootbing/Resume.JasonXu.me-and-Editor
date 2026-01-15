@@ -1,3 +1,5 @@
-# Resume
+# Resume.JasonXu.Me
 
-100% vibe coded, but a showcase for work
+Up-to-date Resume display with generation from OverLeaf.
+
+100% vibe coded in Cursor
