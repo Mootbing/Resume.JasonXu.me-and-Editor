@@ -161,13 +161,10 @@ h1:hover {
 
 .contact {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   gap: 15px;
   color: #666;
   font-size: 0.9em;
-  overflow-x: auto;
-  overflow-y: hidden;
-  scrollbar-width: none;
 }
 
 .contact::-webkit-scrollbar {
@@ -539,6 +536,14 @@ h2:hover {
     padding: 20px;
     border-radius: 0;
   }
+  .header-content {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  .header-text {
+    flex: 1;
+    min-width: 0;
+  }
   h1 {
     font-size: 1.5em;
   }
@@ -546,7 +551,12 @@ h2:hover {
     flex-direction: column;
   }
   .contact {
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .contact-link {
+    font-size: 0.8em;
+    white-space: normal;
   }
   a[href*="Jason_Xu.pdf"] {
     top: 20px !important;
