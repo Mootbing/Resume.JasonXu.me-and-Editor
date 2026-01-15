@@ -230,7 +230,13 @@ h2:hover {
   display: inline-block;
 }
 
-.experience-title:hover {
+.experience-title-link {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+}
+
+.experience-title-link:hover .experience-title {
   transform: scale(1.02);
 }
 

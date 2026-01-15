@@ -47,9 +47,11 @@ export default function ProjectsSection() {
       >
         <div className="experience-item">
           <div className="experience-header">
-            <span className="experience-title">
-              YCombinator Startup School Network
-            </span>
+            <a href="https://yc-ai-sus-search-engine.vercel.app/" target="_blank" rel="noopener noreferrer" className="experience-title-link">
+              <span className="experience-title">
+                YCombinator Startup School Network
+              </span>
+            </a>
             <span className="experience-date">June - August 2025</span>
           </div>
           <div className="experience-company">Next.js, Vercel, Pinecone</div>
@@ -72,7 +74,9 @@ export default function ProjectsSection() {
         </div>
         <div className="experience-item">
           <div className="experience-header">
-            <span className="experience-title">Content Strategist</span>
+            <a href="https://instagram.com/bing.mov" target="_blank" rel="noopener noreferrer" className="experience-title-link">
+              <span className="experience-title">Content Strategist</span>
+            </a>
             <span className="experience-date">May - August 2025</span>
           </div>
           <div className="experience-company">Vibes</div>
@@ -83,7 +87,9 @@ export default function ProjectsSection() {
         </div>
         <div className="experience-item">
           <div className="experience-header">
-            <span className="experience-title">17.JasonXu.me</span>
+            <a href="https://17.jasonxu.me" target="_blank" rel="noopener noreferrer" className="experience-title-link">
+              <span className="experience-title">17.JasonXu.me</span>
+            </a>
             <span className="experience-date">August 2023 – Present</span>
           </div>
           <div className="experience-company">Next.js, Vercel</div>

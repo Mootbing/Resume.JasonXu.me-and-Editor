@@ -47,7 +47,9 @@ export default function ExperienceSection() {
       >
         <div className="experience-item">
           <div className="experience-header">
-            <span className="experience-title">Icon.com</span>
+            <a href="https://icon.com" target="_blank" rel="noopener noreferrer" className="experience-title-link">
+              <span className="experience-title">Icon.com</span>
+            </a>
             <span className="experience-date">October 2025 - Present</span>
           </div>
           <div className="experience-company">Founding Eng #2</div>
@@ -126,7 +128,9 @@ export default function ExperienceSection() {
         </div>
         <div className="experience-item">
           <div className="experience-header">
-            <span className="experience-title">GNEC Hackathon</span>
+            <a href="https://gnec.ngo/hackathon" target="_blank" rel="noopener noreferrer" className="experience-title-link">
+              <span className="experience-title">GNEC Hackathon</span>
+            </a>
             <span className="experience-date">January 2023 – Present</span>
           </div>
           <div className="experience-company">Founder</div>
@@ -153,7 +157,9 @@ export default function ExperienceSection() {
         </div>
         <div className="experience-item">
           <div className="experience-header">
-            <span className="experience-title">United Nations</span>
+            <a href="https://un.org" target="_blank" rel="noopener noreferrer" className="experience-title-link">
+              <span className="experience-title">United Nations</span>
+            </a>
             <span className="experience-date">July 2022 – August 2024</span>
           </div>
           <div className="experience-company">Software Engineer</div>
