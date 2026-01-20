@@ -77,6 +77,16 @@ export default function BlobCursor() {
         }
       }
 
+      // Check for experience link
+      const experienceLink = target.closest('.experience-link')
+      if (experienceLink) {
+        const rect = experienceLink.getBoundingClientRect()
+        return {
+          type: 'contact',
+          bounds: new DOMRect(rect.left, rect.bottom - 2, rect.width, 2),
+        }
+      }
+
       // Check for download button
       const downloadBtn = target.closest('.download-btn')
       if (downloadBtn) {
