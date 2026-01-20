@@ -155,9 +155,7 @@ h1 {
   transform-origin: left center;
 }
 
-h1:hover {
-  transform: scale(1.02);
-}
+/* h1:hover scale removed */
 
 .contact {
   display: flex;
@@ -181,9 +179,7 @@ h1:hover {
   transform-origin: left center;
 }
 
-.contact-link:hover {
-  transform: scale(1.02);
-}
+/* .contact-link:hover scale removed */
 
 section {
   margin-bottom: 25px;
@@ -200,9 +196,7 @@ h2 {
   transform-origin: left center;
 }
 
-h2:hover {
-  transform: scale(1.02);
-}
+/* h2:hover scale removed */
 
 .experience-item {
   margin-bottom: 30px;
@@ -236,9 +230,7 @@ h2:hover {
   display: inline-block;
 }
 
-.experience-title-link:hover .experience-title {
-  transform: scale(1.02);
-}
+/* .experience-title-link:hover .experience-title scale removed */
 
 .experience-date {
   color: #777;
@@ -249,9 +241,7 @@ h2:hover {
   display: inline-block;
 }
 
-.experience-date:hover {
-  transform: scale(1.02);
-}
+/* .experience-date:hover scale removed */
 
 .experience-company {
   color: #666;
@@ -299,9 +289,7 @@ h2:hover {
   display: inline-block;
 }
 
-.education-title:hover {
-  transform: scale(1.02);
-}
+/* .education-title:hover scale removed */
 
 .education-date {
   color: #777;
@@ -312,9 +300,7 @@ h2:hover {
   display: inline-block;
 }
 
-.education-date:hover {
-  transform: scale(1.02);
-}
+/* .education-date:hover scale removed */
 
 .education-school {
   color: #666;

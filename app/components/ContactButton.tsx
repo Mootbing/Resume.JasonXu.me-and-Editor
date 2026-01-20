@@ -20,12 +20,7 @@ export default function ContactButton() {
         transition: 'transform 0.2s ease',
         transformOrigin: 'center'
       }}
-      onMouseEnter={(e) => {
-        (e.currentTarget as HTMLElement).style.transform = 'scale(1.02)';
-      }}
-      onMouseLeave={(e) => {
-        (e.currentTarget as HTMLElement).style.transform = 'scale(1)';
-      }}
+      // hover scale removed
     >
       Interested? Inspired?
     </a>
