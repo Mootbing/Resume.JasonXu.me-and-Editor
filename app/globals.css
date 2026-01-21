@@ -137,12 +137,6 @@ header {
   gap: 12px;
 }
 
-.download-link {
-  font-size: 0.9em;
-  color: #666;
-  margin-left: -4px;
-  margin-bottom: 6px;
-}
 
 h1 {
   font-family: var(--font-playfair), serif;
@@ -155,7 +149,6 @@ h1 {
   transform-origin: left center;
 }
 
-/* h1:hover scale removed */
 
 .contact {
   display: flex;
@@ -179,7 +172,6 @@ h1 {
   transform-origin: left center;
 }
 
-/* .contact-link:hover scale removed */
 
 .experience-link {
   color: inherit;
@@ -191,7 +183,6 @@ h1 {
   transform-origin: left center;
 }
 
-/* .experience-link:hover scale removed */
 
 section {
   margin-bottom: 25px;
@@ -208,7 +199,6 @@ h2 {
   transform-origin: left center;
 }
 
-/* h2:hover scale removed */
 
 .experience-item {
   margin-bottom: 30px;
@@ -242,7 +232,6 @@ h2 {
   display: inline-block;
 }
 
-/* .experience-title-link:hover .experience-title scale removed */
 
 .experience-date {
   color: #777;
@@ -253,7 +242,6 @@ h2 {
   display: inline-block;
 }
 
-/* .experience-date:hover scale removed */
 
 .experience-company {
   color: #666;
@@ -301,7 +289,6 @@ h2 {
   display: inline-block;
 }
 
-/* .education-title:hover scale removed */
 
 .education-date {
   color: #777;
@@ -312,7 +299,6 @@ h2 {
   display: inline-block;
 }
 
-/* .education-date:hover scale removed */
 
 .education-school {
   color: #666;
@@ -346,16 +332,16 @@ h2 {
   padding: 0;
 }
 
-.skills-list.collapsed .skill-tag {
+.skills-list.collapsed .skill-bubble {
   opacity: 0;
   animation: none !important;
 }
 
-.skills-list.animating .skill-tag {
+.skills-list.animating .skill-bubble {
   opacity: 0;
 }
 
-.skills-list.animating .skill-tag.fade-in {
+.skills-list.animating .skill-bubble.fade-in {
   opacity: 1;
   animation: lineFadeIn 0.3s ease-out forwards;
 }
@@ -509,13 +495,6 @@ h2 {
   margin-bottom: 10px;
 }
 
-.skill-tag {
-  background: rgba(0, 0, 0, 0.05);
-  padding: 6px 14px;
-  border-radius: 20px;
-  color: #333;
-  font-size: 0.9em;
-}
 
 .skill-bubble {
   background: rgba(0, 0, 0, 0.05);

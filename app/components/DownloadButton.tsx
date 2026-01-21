@@ -1,13 +1,17 @@
 'use client'
 
-export default function DownloadButton() {
+export default function DownloadButton(): JSX.Element {
   const handleDownload = () => {
-    const link = document.createElement('a')
-    link.href = '/Jason_Xu.pdf'
-    link.download = 'resume.pdf'
-    document.body.appendChild(link)
-    link.click()
-    document.body.removeChild(link)
+    try {
+      const link = document.createElement('a')
+      link.href = '/Jason_Xu.pdf'
+      link.download = 'resume.pdf'
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+    } catch (error) {
+      console.error('Error downloading resume:', error)
+    }
   }
 
   return (

@@ -1,23 +1,31 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import {
+  BLOB_EASING,
+  BLOB_BASE_SIZE,
+  BLOB_PADDING_LARGE,
+  BLOB_PADDING_MEDIUM,
+  BLOB_PADDING_SMALL,
+  BLOB_SIZE_MULTIPLIER_LARGE,
+  BLOB_SIZE_MULTIPLIER_MEDIUM,
+} from '../constants/animation'
 
 interface HoverTarget {
   type: 'header' | 'contact' | 'button' | 'skill'
   bounds: DOMRect
 }
 
-export default function BlobCursor() {
+export default function BlobCursor(): JSX.Element {
   const blobRef = useRef<HTMLDivElement>(null)
   const mouseX = useRef(0)
   const mouseY = useRef(0)
   const blobX = useRef(0)
   const blobY = useRef(0)
-  const blobWidth = useRef(20)
-  const blobHeight = useRef(20)
+  const blobWidth = useRef(BLOB_BASE_SIZE)
+  const blobHeight = useRef(BLOB_BASE_SIZE)
   const currentHoverRef = useRef<HoverTarget | null>(null)
   const lastHoverTypeRef = useRef<string | null>(null)
-  const easing = 0.12
 
   useEffect(() => {
     // Hide cursor on touch devices
@@ -37,23 +45,30 @@ export default function BlobCursor() {
       // Check for contact button
       const contactButton = target.closest('.contact-button')
       if (contactButton) {
-        // Use range to get actual text bounds, not full element bounds
-        const range = document.createRange()
-        range.selectNodeContents(contactButton)
-        const textRect = range.getBoundingClientRect()
+        try {
+          const range = document.createRange()
+          range.selectNodeContents(contactButton)
+          const textRect = range.getBoundingClientRect()
 
-        const padding = 8
-        const isWithinBounds =
-          clientX >= textRect.left - padding &&
-          clientX <= textRect.right + padding &&
-          clientY >= textRect.top - 2 &&
-          clientY <= textRect.bottom + 2
+          const isWithinBounds =
+            clientX >= textRect.left - BLOB_PADDING_LARGE &&
+            clientX <= textRect.right + BLOB_PADDING_LARGE &&
+            clientY >= textRect.top - BLOB_PADDING_SMALL &&
+            clientY <= textRect.bottom + BLOB_PADDING_SMALL
 
-        if (isWithinBounds) {
-          return {
-            type: 'header',
-            bounds: new DOMRect(textRect.left - 8, textRect.top - 2, textRect.width + 16, textRect.height + 4),
+          if (isWithinBounds) {
+            return {
+              type: 'header',
+              bounds: new DOMRect(
+                textRect.left - BLOB_PADDING_LARGE,
+                textRect.top - BLOB_PADDING_SMALL,
+                textRect.width + BLOB_SIZE_MULTIPLIER_LARGE,
+                textRect.height + BLOB_PADDING_MEDIUM
+              ),
+            }
           }
+        } catch (error) {
+          console.error('Error creating range for contact button:', error)
         }
       }
 
@@ -61,18 +76,22 @@ export default function BlobCursor() {
       const skillBubble = target.closest('.skill-bubble')
       if (skillBubble) {
         const rect = skillBubble.getBoundingClientRect()
-        
-        const padding = 8
+
         const isWithinBounds =
-          clientX >= rect.left - padding &&
-          clientX <= rect.right + padding &&
-          clientY >= rect.top - 4 &&
-          clientY <= rect.bottom + 4
+          clientX >= rect.left - BLOB_PADDING_LARGE &&
+          clientX <= rect.right + BLOB_PADDING_LARGE &&
+          clientY >= rect.top - BLOB_PADDING_MEDIUM &&
+          clientY <= rect.bottom + BLOB_PADDING_MEDIUM
 
         if (isWithinBounds) {
           return {
             type: 'skill',
-            bounds: new DOMRect(rect.left - 8, rect.top - 4, rect.width + 16, rect.height + 8),
+            bounds: new DOMRect(
+              rect.left - BLOB_PADDING_LARGE,
+              rect.top - BLOB_PADDING_MEDIUM,
+              rect.width + BLOB_SIZE_MULTIPLIER_LARGE,
+              rect.height + BLOB_SIZE_MULTIPLIER_MEDIUM
+            ),
           }
         }
       }
@@ -83,7 +102,7 @@ export default function BlobCursor() {
         const rect = contactLink.getBoundingClientRect()
         return {
           type: 'contact',
-          bounds: new DOMRect(rect.left, rect.bottom - 2, rect.width, 2),
+          bounds: new DOMRect(rect.left, rect.bottom - BLOB_PADDING_SMALL, rect.width, BLOB_PADDING_SMALL),
         }
       }
 
@@ -93,7 +112,7 @@ export default function BlobCursor() {
         const rect = experienceLink.getBoundingClientRect()
         return {
           type: 'contact',
-          bounds: new DOMRect(rect.left, rect.bottom - 2, rect.width, 2),
+          bounds: new DOMRect(rect.left, rect.bottom - BLOB_PADDING_SMALL, rect.width, BLOB_PADDING_SMALL),
         }
       }
 
@@ -101,18 +120,22 @@ export default function BlobCursor() {
       const downloadBtn = target.closest('.download-btn')
       if (downloadBtn) {
         const rect = downloadBtn.getBoundingClientRect()
-        
-        const padding = 8
+
         const isWithinBounds =
-          clientX >= rect.left - padding &&
-          clientX <= rect.right + padding &&
-          clientY >= rect.top - 2 &&
-          clientY <= rect.bottom + 2
+          clientX >= rect.left - BLOB_PADDING_LARGE &&
+          clientX <= rect.right + BLOB_PADDING_LARGE &&
+          clientY >= rect.top - BLOB_PADDING_SMALL &&
+          clientY <= rect.bottom + BLOB_PADDING_SMALL
 
         if (isWithinBounds) {
           return {
             type: 'button',
-            bounds: new DOMRect(rect.left - 4, rect.top - 2, rect.width + 8, rect.height + 4),
+            bounds: new DOMRect(
+              rect.left - BLOB_PADDING_MEDIUM,
+              rect.top - BLOB_PADDING_SMALL,
+              rect.width + BLOB_SIZE_MULTIPLIER_MEDIUM,
+              rect.height + BLOB_PADDING_MEDIUM
+            ),
           }
         }
       }
@@ -120,23 +143,30 @@ export default function BlobCursor() {
       // Check for h1/h2
       const header = target.closest('h1, h2')
       if (header) {
-        // Use range to get actual text bounds, not full element bounds
-        const range = document.createRange()
-        range.selectNodeContents(header)
-        const textRect = range.getBoundingClientRect()
+        try {
+          const range = document.createRange()
+          range.selectNodeContents(header)
+          const textRect = range.getBoundingClientRect()
 
-        const padding = 8
-        const isWithinBounds =
-          clientX >= textRect.left - padding &&
-          clientX <= textRect.right + padding &&
-          clientY >= textRect.top - 2 &&
-          clientY <= textRect.bottom + 2
+          const isWithinBounds =
+            clientX >= textRect.left - BLOB_PADDING_LARGE &&
+            clientX <= textRect.right + BLOB_PADDING_LARGE &&
+            clientY >= textRect.top - BLOB_PADDING_SMALL &&
+            clientY <= textRect.bottom + BLOB_PADDING_SMALL
 
-        if (isWithinBounds) {
-          return {
-            type: 'header',
-            bounds: new DOMRect(textRect.left - 8, textRect.top - 2, textRect.width + 16, textRect.height + 4),
+          if (isWithinBounds) {
+            return {
+              type: 'header',
+              bounds: new DOMRect(
+                textRect.left - BLOB_PADDING_LARGE,
+                textRect.top - BLOB_PADDING_SMALL,
+                textRect.width + BLOB_SIZE_MULTIPLIER_LARGE,
+                textRect.height + BLOB_PADDING_MEDIUM
+              ),
+            }
           }
+        } catch (error) {
+          console.error('Error creating range for header:', error)
         }
       }
 
@@ -176,10 +206,10 @@ export default function BlobCursor() {
 
       if (hover) {
         // Smoothly animate to hover target
-        blobX.current += (hover.bounds.left - blobX.current) * 0.12
-        blobY.current += (hover.bounds.top - blobY.current) * 0.12
-        blobWidth.current += (hover.bounds.width - blobWidth.current) * 0.12
-        blobHeight.current += (hover.bounds.height - blobHeight.current) * 0.12
+        blobX.current += (hover.bounds.left - blobX.current) * BLOB_EASING
+        blobY.current += (hover.bounds.top - blobY.current) * BLOB_EASING
+        blobWidth.current += (hover.bounds.width - blobWidth.current) * BLOB_EASING
+        blobHeight.current += (hover.bounds.height - blobHeight.current) * BLOB_EASING
 
         blob.style.left = blobX.current + 'px'
         blob.style.top = blobY.current + 'px'
@@ -188,10 +218,10 @@ export default function BlobCursor() {
         blob.style.transform = 'translate(0, 0)'
       } else {
         // Return to circle following mouse
-        blobX.current += (mouseX.current - blobX.current) * 0.12
-        blobY.current += (mouseY.current - blobY.current) * 0.12
-        blobWidth.current += (20 - blobWidth.current) * 0.12
-        blobHeight.current += (20 - blobHeight.current) * 0.12
+        blobX.current += (mouseX.current - blobX.current) * BLOB_EASING
+        blobY.current += (mouseY.current - blobY.current) * BLOB_EASING
+        blobWidth.current += (BLOB_BASE_SIZE - blobWidth.current) * BLOB_EASING
+        blobHeight.current += (BLOB_BASE_SIZE - blobHeight.current) * BLOB_EASING
 
         blob.style.left = blobX.current + 'px'
         blob.style.top = blobY.current + 'px'

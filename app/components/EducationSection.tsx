@@ -1,9 +1,9 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useRef } from 'react'
 import { wrapTextInChars, animateChars } from '../utils/animation'
 
-export default function EducationSection() {
+export default function EducationSection(): JSX.Element {
   const [isCollapsed, setIsCollapsed] = useState(false)
   const contentRef = useRef<HTMLDivElement>(null)
   const titleRef = useRef<HTMLSpanElement>(null)
@@ -30,11 +30,11 @@ export default function EducationSection() {
           .querySelectorAll('.char')
           .forEach((char) => char.classList.remove('fade-in'))
         if (titleRef.current && titleRef.current.dataset.text)
-          titleRef.current.innerHTML = titleRef.current.dataset.text
+          titleRef.current.textContent = titleRef.current.dataset.text
         if (dateRef.current && dateRef.current.dataset.text)
-          dateRef.current.innerHTML = dateRef.current.dataset.text
+          dateRef.current.textContent = dateRef.current.dataset.text
         if (schoolRef.current && schoolRef.current.dataset.text)
-          schoolRef.current.innerHTML = schoolRef.current.dataset.text
+          schoolRef.current.textContent = schoolRef.current.dataset.text
       }
     }
   }

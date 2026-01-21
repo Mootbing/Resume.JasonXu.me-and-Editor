@@ -1,28 +1,31 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import {
+  BACKGROUND_RESUME_START_VH,
+  BACKGROUND_RESUME_START_PX,
+  BACKGROUND_RESUME_END_PX,
+  SCROLL_THRESHOLD_PX,
+  BACKGROUND_RESUME_FONT_SIZE,
+} from '../constants/animation'
 
-
-export default function BackgroundResume() {
-  const [topPosition, setTopPosition] = useState('25vh');
-  const [opacity, setOpacity] = useState(0.1);
+export default function BackgroundResume(): JSX.Element {
+  const [topPosition, setTopPosition] = useState(`${BACKGROUND_RESUME_START_VH}vh`)
+  const [opacity, setOpacity] = useState(0.1)
 
   useEffect(() => {
     const handleScroll = () => {
-      // Start at 25vh and increase to 50vh as you scroll
-      const scrollProgress = Math.min(window.scrollY / 500, 1); // Full movement within 500px of scroll
-      const newTop = 25 + scrollProgress * 25; // Goes from 25vh to 50vh
-      setTopPosition(`${newTop}vh`);
-      // Fade out opacity from 0.1 to 0 as it reaches center
-      const newOpacity = 0.1 * (1 - scrollProgress);
-      setOpacity(newOpacity);
-    };
+      const scrollProgress = Math.min(window.scrollY / SCROLL_THRESHOLD_PX, 1)
+      const newTop = BACKGROUND_RESUME_START_PX + scrollProgress * BACKGROUND_RESUME_END_PX
+      setTopPosition(`${newTop}vh`)
+      const newOpacity = 0.1 * (1 - scrollProgress)
+      setOpacity(newOpacity)
+    }
 
-    window.addEventListener('scroll', handleScroll);
-    // Call once to set initial state
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    window.addEventListener('scroll', handleScroll)
+    handleScroll()
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
     <div
@@ -31,7 +34,7 @@ export default function BackgroundResume() {
         top: topPosition,
         left: '50%',
         transform: 'translate(-50%, -50%)',
-        fontSize: 'clamp(50px, 20vw, 300px)',
+        fontSize: BACKGROUND_RESUME_FONT_SIZE,
         fontWeight: 300,
         fontFamily: 'var(--font-playfair), serif',
         color: '#000',
@@ -44,6 +47,6 @@ export default function BackgroundResume() {
     >
       RÉSUMÉ
     </div>
-  );
+  )
 }
 

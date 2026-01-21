@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { ANIMATION_DELAY_STANDARD, ANIMATION_DELAY_COMPLETE } from '../constants/animation'
 
 const skills = [
   'Python',
@@ -30,7 +31,7 @@ const skills = [
   'Figma',
 ]
 
-export default function SkillsSection() {
+export default function SkillsSection(): JSX.Element {
   const [isCollapsed, setIsCollapsed] = useState(false)
   const [isAnimating, setIsAnimating] = useState(false)
 
@@ -40,19 +41,19 @@ export default function SkillsSection() {
       setIsAnimating(true)
       const listEl = document.getElementById('skillsList')
       if (listEl) {
-        const tags = listEl.querySelectorAll('.skill-tag')
+        const tags = listEl.querySelectorAll('.skill-bubble')
         let index = 0
         const animateNext = () => {
           if (index < tags.length) {
             const tag = tags[index] as HTMLElement
             tag.classList.add('fade-in')
             index++
-            setTimeout(animateNext, 50)
+            setTimeout(animateNext, ANIMATION_DELAY_STANDARD)
           } else {
-            setTimeout(() => setIsAnimating(false), 200)
+            setTimeout(() => setIsAnimating(false), ANIMATION_DELAY_COMPLETE)
           }
         }
-        setTimeout(animateNext, 50)
+        setTimeout(animateNext, ANIMATION_DELAY_STANDARD)
       }
     } else {
       setIsCollapsed(true)
@@ -60,7 +61,7 @@ export default function SkillsSection() {
       const listEl = document.getElementById('skillsList')
       if (listEl) {
         listEl
-          .querySelectorAll('.skill-tag')
+          .querySelectorAll('.skill-bubble')
           .forEach((tag) => tag.classList.remove('fade-in'))
       }
     }
