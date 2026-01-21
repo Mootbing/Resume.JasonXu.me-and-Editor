@@ -31,19 +31,18 @@ export default function BackgroundResume() {
         top: topPosition,
         left: '50%',
         transform: 'translate(-50%, -50%)',
-        fontSize: 'clamp(150px, 15vw, 300px)',
-        fontWeight: 900,
-        fontFamily: 'Impact, Arial Black, sans-serif',
+        fontSize: 'clamp(50px, 20vw, 300px)',
+        fontWeight: 300,
+        fontFamily: 'var(--font-playfair), serif',
         color: '#000',
         zIndex: -1,
         whiteSpace: 'nowrap',
         opacity: opacity,
         pointerEvents: 'none',
         transition: 'top 0.1s ease, opacity 0.1s ease',
-        letterSpacing: '0.15em',
       }}
     >
-      RESUME
+      RÉSUMÉ
     </div>
   );
 }

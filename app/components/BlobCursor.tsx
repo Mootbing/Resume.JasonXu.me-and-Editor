@@ -20,6 +20,16 @@ export default function BlobCursor() {
   const easing = 0.12
 
   useEffect(() => {
+    // Hide cursor on touch devices
+    const handleTouchStart = () => {
+      const blob = blobRef.current
+      if (blob) {
+        blob.style.display = 'none'
+      }
+    }
+
+    window.addEventListener('touchstart', handleTouchStart, { once: true })
+
     const checkHoverState = (clientX: number, clientY: number): HoverTarget | null => {
       const target = document.elementFromPoint(clientX, clientY) as HTMLElement
       if (!target) return null
@@ -201,6 +211,7 @@ export default function BlobCursor() {
     return () => {
       window.removeEventListener('mousemove', handleMouseMove)
       window.removeEventListener('scroll', handleScroll, true)
+      window.removeEventListener('touchstart', handleTouchStart)
       cancelAnimationFrame(animationId)
     }
   }, [])
