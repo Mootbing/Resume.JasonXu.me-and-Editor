@@ -39,7 +39,7 @@ export default function Home() {
         <a 
           href="/Jason_Xu.pdf" 
           download="resume.pdf" 
-          className="contact-link" 
+          className="download-btn" 
           style={{
             position: 'absolute',
             top: '60px',
