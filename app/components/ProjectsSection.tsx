@@ -22,18 +22,9 @@ export default function ProjectsSection(): JSX.Element {
         <div className="experience-company">Next.js, Vercel, Pinecone</div>
         <div className="experience-desc">
           <ul>
-            <li>
-              Developed text-embedded database of 1240 users and conversation
-              logs for semantic search by YC students
-            </li>
-            <li>
-              Created front-end search portal in Next.js, implementing
-              Firebase Auth to prevent botting and abuse
-            </li>
-            <li>
-              Launched on LinkedIn with 270k+ views, 700+ new followers, and
-              452 registered, active users
-            </li>
+            <li>Developed vector-embedded database of 1240+ users and conversation logs for semantic querying by YC students</li>
+            <li>Created front-end search portal in Next.js, using Firebase Auth to stop spam queries and bots</li>
+            <li>Launched on LinkedIn with 300k+ views, 700+ new followers, and 452 registered, active users</li>
           </ul>
         </div>
       </div>
@@ -46,8 +37,7 @@ export default function ProjectsSection(): JSX.Element {
         </div>
         <div className="experience-company">Vibes</div>
         <div className="experience-desc">
-          255k+ views on IG (@x.json1), 250k+ views on YT
-          (@cowland-game-studios), 300k+ views LinkedIn (@xj1)
+          300k+ views on IG (@bing.mov), 250k+ views on YT (@cowland-game-studios), closed deals with Blackbox.ai
         </div>
       </div>
       <div className="experience-item">

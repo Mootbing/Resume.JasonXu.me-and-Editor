@@ -4,31 +4,32 @@ import { useState } from 'react'
 import { ANIMATION_DELAY_STANDARD, ANIMATION_DELAY_COMPLETE } from '../constants/animation'
 
 const skills = [
+  // Languages
   'Python',
+  'JavaScript',
   'Java',
-  'TypeScript',
-  'React',
-  'Next.js',
   'C++',
+  'TypeScript',
+  'Flutter',
+  'Tailwind',
   'HTML',
   'CSS',
-  'Tailwind',
   'OCaml',
-  'SQL',
-  'Unreal Engine',
+  // Tools
   'Expo',
   'React Native',
-  'Git',
-  'Firebase',
+  'React',
+  'Next.js',
+  'Vercel',
   'Supabase',
-  'Hasura',
-  'GraphQL',
-  'Postgres',
-  'AWS',
-  'GCP',
-  'Azure',
-  'CI/CD',
+  'Firebase',
   'Figma',
+  'CI/CD',
+  'REST',
+  'Git',
+  'GCP',
+  'AWS',
+  'Azure',
 ]
 
 export default function SkillsSection(): JSX.Element {
