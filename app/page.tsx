@@ -10,21 +10,7 @@ export default function Home() {
   return (
     <div className="wrapper">
       <BackgroundResume />
-      <div 
-        style={{
-          position: 'fixed',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          fontSize: '15vw',
-          fontWeight: 900,
-          color: '#000',
-          zIndex: -1,
-          whiteSpace: 'nowrap',
-          pointerEvents: 'none'
-        }}
-      >
-      </div>
+      // ...existing code...
       <div className="container">
         <Header />
 
@@ -39,16 +25,7 @@ export default function Home() {
         <a 
           href="/Jason_Xu.pdf" 
           download="resume.pdf" 
-          className="download-btn" 
-          style={{
-            position: 'absolute',
-            top: '60px',
-            right: '60px',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '8px',
-            padding: '8px'
-          }}
+          className="download-btn download-btn-fixed"
         >
           <svg
             width="24"
