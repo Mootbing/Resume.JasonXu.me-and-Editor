@@ -10,6 +10,7 @@ export default function Home() {
   return (
     <div className="wrapper">
       <BackgroundResume />
+      
       <div className="container">
         <Header />
 

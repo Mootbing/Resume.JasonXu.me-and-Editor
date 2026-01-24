@@ -12,7 +12,9 @@ export default function ExperienceSection(): JSX.Element {
     >
       <div className="experience-item">
         <div className="experience-header">
-          <span className="experience-title">Photon.codes</span>
+          <a href="https://photon.codes" target="_blank" rel="noopener noreferrer" className="experience-title-link experience-link">
+            <span className="experience-title">Photon.codes</span>
+          </a>
           <span className="experience-date">December 2025 - January 2026</span>
         </div>
         <div className="experience-company">Founder in Residence</div>
