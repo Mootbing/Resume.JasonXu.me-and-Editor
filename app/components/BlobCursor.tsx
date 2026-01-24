@@ -205,30 +205,27 @@ export default function BlobCursor(): JSX.Element {
       }
 
       if (hover) {
-        // Smoothly animate to hover target
-        blobX.current += (hover.bounds.left - blobX.current) * BLOB_EASING
-        blobY.current += (hover.bounds.top - blobY.current) * BLOB_EASING
+        // Smoothly animate to hover target (use center of bounds for consistent positioning)
+        const targetX = hover.bounds.left + hover.bounds.width / 2
+        const targetY = hover.bounds.top + hover.bounds.height / 2
+        blobX.current += (targetX - blobX.current) * BLOB_EASING
+        blobY.current += (targetY - blobY.current) * BLOB_EASING
         blobWidth.current += (hover.bounds.width - blobWidth.current) * BLOB_EASING
         blobHeight.current += (hover.bounds.height - blobHeight.current) * BLOB_EASING
-
-        blob.style.left = blobX.current + 'px'
-        blob.style.top = blobY.current + 'px'
-        blob.style.width = blobWidth.current + 'px'
-        blob.style.height = blobHeight.current + 'px'
-        blob.style.transform = 'translate(0, 0)'
       } else {
         // Return to circle following mouse
         blobX.current += (mouseX.current - blobX.current) * BLOB_EASING
         blobY.current += (mouseY.current - blobY.current) * BLOB_EASING
         blobWidth.current += (BLOB_BASE_SIZE - blobWidth.current) * BLOB_EASING
         blobHeight.current += (BLOB_BASE_SIZE - blobHeight.current) * BLOB_EASING
-
-        blob.style.left = blobX.current + 'px'
-        blob.style.top = blobY.current + 'px'
-        blob.style.width = blobWidth.current + 'px'
-        blob.style.height = blobHeight.current + 'px'
-        blob.style.transform = 'translate(-50%, -50%)'
       }
+
+      // Always use center-based positioning for smooth transitions
+      blob.style.left = blobX.current + 'px'
+      blob.style.top = blobY.current + 'px'
+      blob.style.width = blobWidth.current + 'px'
+      blob.style.height = blobHeight.current + 'px'
+      blob.style.transform = 'translate(-50%, -50%)'
 
       requestAnimationFrame(animate)
     }
