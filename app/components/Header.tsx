@@ -10,7 +10,7 @@ export default function Header() {
             </a>
           </div>
           <div className="contact">
-            <a href="https://email.jasonxu.me" className="contact-link">
+            <a href="https://email.jasonxu.me" target="_blank" className="contact-link">
               <svg
                 width="14"
                 height="14"
