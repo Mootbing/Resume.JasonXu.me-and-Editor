@@ -39,7 +39,7 @@ export default function ProjectsSection(): JSX.Element {
       </div>
       <div className="experience-item">
         <div className="experience-header">
-          <a href="https://instagram.com/bing.mov" target="_blank" rel="noopener noreferrer" className="experience-title-link experience-link">
+          <a href="https://insta.jasonxu.me" target="_blank" rel="noopener noreferrer" className="experience-title-link experience-link">
             <span className="experience-title">Content Strategist</span>
           </a>
           <span className="experience-date">May - August 2025</span>

@@ -10,7 +10,7 @@ export default function Header() {
             </a>
           </div>
           <div className="contact">
-            <a href="mailto:him@jasonxu.me" className="contact-link">
+            <a href="https://email.jasonxu.me" className="contact-link">
               <svg
                 width="14"
                 height="14"
@@ -27,7 +27,7 @@ export default function Header() {
               </svg>
               him@jasonxu.me
             </a>
-            <a href="https://linkedin.com/in/xj1" target="_blank" rel="noopener noreferrer" className="contact-link">
+            <a href="https://linkedin.jasonxu.me" target="_blank" rel="noopener noreferrer" className="contact-link">
               <svg
                 width="14"
                 height="14"
@@ -45,7 +45,7 @@ export default function Header() {
               </svg>
               xj1
             </a>
-            <a href="https://instagram.com/bing.mov" target="_blank" rel="noopener noreferrer" className="contact-link">
+            <a href="https://insta.jasonxu.me" target="_blank" rel="noopener noreferrer" className="contact-link">
               <svg
                 width="14"
                 height="14"
@@ -63,7 +63,7 @@ export default function Header() {
               </svg>
               bing.mov
             </a>
-            <a href="https://github.com/mootbing" target="_blank" rel="noopener noreferrer" className="contact-link">
+            <a href="https://github.jasonxu.me" target="_blank" rel="noopener noreferrer" className="contact-link">
               <svg
                 width="14"
                 height="14"
