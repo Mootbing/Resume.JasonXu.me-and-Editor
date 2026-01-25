@@ -20,7 +20,7 @@ export default function ExperienceSection(): JSX.Element {
         <div className="experience-company">Founder in Residence</div>
         <div className="experience-desc">
           <ul>
-            <li>Designed and built tryFlux.ai, vibe-coding IDE for iMessage agents with Next.js, LangChain, and iMessage-kit</li>
+            <li>Designed and built tryFlux.ai, agentic-coding IDE for iMessage agents with Next.js, LangChain, and iMessage-kit</li>
             <li>Introduced nested Docker container design for resource sharing between agents, reducing 75% compute costs</li>
             <li>Hit #1 on Product Hunt (350+ upvotes) in 24-hours of launch. Generated 1.5M+ views across social media.</li>
           </ul>
