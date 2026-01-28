@@ -1,52 +1,82 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import {
-  BACKGROUND_RESUME_START_VH,
-  BACKGROUND_RESUME_START_PX,
-  BACKGROUND_RESUME_END_PX,
-  SCROLL_THRESHOLD_PX,
-  BACKGROUND_RESUME_FONT_SIZE,
-} from '../constants/animation'
-
 export default function BackgroundResume(): JSX.Element {
-  const [topPosition, setTopPosition] = useState(`${BACKGROUND_RESUME_START_VH}vh`)
-  const [opacity, setOpacity] = useState(0.1)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollProgress = Math.min(window.scrollY / SCROLL_THRESHOLD_PX, 1)
-      const newTop = BACKGROUND_RESUME_START_PX + scrollProgress * BACKGROUND_RESUME_END_PX
-      setTopPosition(`${newTop}vh`)
-      const newOpacity = 0.1 * (1 - scrollProgress)
-      setOpacity(newOpacity)
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    handleScroll()
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
   return (
-    <div
+    <section
+      className="hero-section"
       style={{
-        position: 'fixed',
-        top: topPosition,
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        fontSize: BACKGROUND_RESUME_FONT_SIZE,
-        fontWeight: 300,
-        fontFamily: 'var(--font-playfair), serif',
-        color: '#000',
-        zIndex: -1,
-        whiteSpace: 'nowrap',
-        opacity: opacity,
-        pointerEvents: 'none',
-        transition: 'top 0.1s ease, opacity 0.1s ease',
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '0 24px',
+        position: 'relative',
       }}
     >
-      RÉSUMÉ
-    </div>
+      <div style={{ maxWidth: '720px', width: '100%', textAlign: 'center' }}>
+        {/* Name Header */}
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '12px',
+            marginBottom: '16px',
+          }}
+        >
+          <img
+            src="/cow.svg"
+            alt="Cow icon"
+            style={{
+              width: '48px',
+              height: '48px',
+              filter: 'invert(1) brightness(0.75)',
+            }}
+          />
+          <p
+            style={{
+              fontFamily: 'var(--font-montserrat), sans-serif',
+              fontWeight: 300,
+              color: '#666',
+              letterSpacing: '0.1em',
+              fontSize: '1rem',
+              margin: 0,
+            }}
+          >
+            JASON XU
+          </p>
+        </div>
+
+        {/* Hero Heading */}
+        <h1
+          className="hero-heading"
+          style={{
+            fontFamily: 'var(--font-playfair), serif',
+            fontWeight: 300,
+            color: '#333',
+            fontSize: 'clamp(3rem, 8vw, 4.5rem)',
+            lineHeight: 1.1,
+            marginBottom: '24px',
+          }}
+        >
+          Résumé
+        </h1>
+
+        {/* Subtitle */}
+        <p
+          style={{
+            color: '#666',
+            lineHeight: 1.7,
+            fontSize: '1rem',
+            maxWidth: '540px',
+            margin: '0 auto',
+          }}
+        >
+          USDA certified, 100% organic projects.
+        </p>
+      </div>
+
+    </section>
   )
 }
-

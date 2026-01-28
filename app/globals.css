@@ -147,7 +147,7 @@ body {
   z-index: 1;
   box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
   border-radius: 50px 50px 0 0;
-  margin-top: 50vh;
+  margin-top: -175px;
   border: 1px solid rgba(255, 255, 255, 0.5);
   background: rgba(255, 255, 255, 0.02);
   backdrop-filter: blur(20px);
@@ -565,6 +565,17 @@ h2 {
   background: rgba(0, 0, 0, 0.15);
   color: #333;
 }
+
+.hero-section {
+  margin-bottom: 0;
+}
+
+.hero-heading {
+  display: inline-block;
+  transition: transform 0.2s ease;
+  transform-origin: center;
+}
+
 
 @media (max-width: 768px) {
   .container {
