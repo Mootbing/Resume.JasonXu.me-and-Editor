@@ -140,6 +140,30 @@ export default function BlobCursor(): JSX.Element {
         }
       }
 
+      // Check for footer nav link or email
+      const footerLink = target.closest('.footer-nav-link, .footer-email')
+      if (footerLink) {
+        const rect = footerLink.getBoundingClientRect()
+
+        const isWithinBounds =
+          clientX >= rect.left - BLOB_PADDING_LARGE &&
+          clientX <= rect.right + BLOB_PADDING_LARGE &&
+          clientY >= rect.top - BLOB_PADDING_SMALL &&
+          clientY <= rect.bottom + BLOB_PADDING_SMALL
+
+        if (isWithinBounds) {
+          return {
+            type: 'button',
+            bounds: new DOMRect(
+              rect.left - BLOB_PADDING_MEDIUM,
+              rect.top - BLOB_PADDING_SMALL,
+              rect.width + BLOB_SIZE_MULTIPLIER_MEDIUM,
+              rect.height + BLOB_PADDING_MEDIUM
+            ),
+          }
+        }
+      }
+
       // Check for h1/h2
       const header = target.closest('h1, h2')
       if (header) {

@@ -3,7 +3,7 @@ import EducationSection from './components/EducationSection'
 import SkillsSection from './components/SkillsSection'
 import ExperienceSection from './components/ExperienceSection'
 import ProjectsSection from './components/ProjectsSection'
-import ContactButton from './components/ContactButton'
+import Footer from './components/Footer'
 import BackgroundResume from './components/BackgroundResume'
 
 export default function Home() {
@@ -42,7 +42,7 @@ export default function Home() {
             <line x1="12" y1="15" x2="12" y2="3"></line>
           </svg>
         </a>
-        <ContactButton />
+        <Footer />
       </div>
     </div>
   )
