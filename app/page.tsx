@@ -11,7 +11,7 @@ export default function Home() {
     <div className="wrapper">
       <BackgroundResume />
       
-      <div className="container">
+      <div id="resume" className="container">
         <Header />
 
         <EducationSection />

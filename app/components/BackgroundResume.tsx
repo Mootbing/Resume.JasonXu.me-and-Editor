@@ -49,7 +49,8 @@ export default function BackgroundResume(): JSX.Element {
         </div>
 
         {/* Hero Heading */}
-        <h1
+        <a
+          href="#resume"
           className="hero-heading"
           style={{
             fontFamily: 'var(--font-playfair), serif',
@@ -58,10 +59,12 @@ export default function BackgroundResume(): JSX.Element {
             fontSize: 'clamp(3rem, 8vw, 4.5rem)',
             lineHeight: 1.1,
             marginBottom: '24px',
+            textDecoration: 'none',
+            display: 'block',
           }}
         >
           Résumé
-        </h1>
+        </a>
 
         {/* Subtitle */}
         <p
