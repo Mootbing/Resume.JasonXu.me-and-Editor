@@ -76,7 +76,7 @@ export default function BackgroundResume(): JSX.Element {
             margin: '0 auto',
           }}
         >
-          USDA certified, 100% organic projects.
+          Locally sourced, grass fed projects.
         </p>
       </div>
 
