@@ -636,7 +636,7 @@ h2 {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 800px) {
   .container {
     padding: 20px 20px 0;
     border-radius: 0;

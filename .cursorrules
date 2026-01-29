@@ -47,7 +47,7 @@
 ## Layout
 - **Max width**: 800px for content container
 - **Centering**: Use flexbox with align-items: center and justify-content: center
-- **Responsive breakpoint**: 768px
+- **Responsive breakpoint**: 800px
 
 ## Borders & Dividers
 - **Item dividers**: 1px solid rgba(0,0,0,0.05)
@@ -67,4 +67,4 @@
 - Use rgba for transparency effects
 - Ensure proper contrast for accessibility
 - Use flexbox for layouts
-- Add responsive design considerations at 768px breakpoint
+- Add responsive design considerations at 800px breakpoint

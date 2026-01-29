@@ -18,6 +18,13 @@ export default function ResumeContainer({ children }: { children: ReactNode }) {
 
       containerRef.current.style.marginLeft = `${margin}rem`
       containerRef.current.style.marginRight = `${margin}rem`
+
+      if (window.innerWidth <= 800) {
+        const borderRadius = 50 * (1 - progress)
+        containerRef.current.style.borderRadius = `${borderRadius}px ${borderRadius}px 0 0`
+      } else {
+        containerRef.current.style.borderRadius = ''
+      }
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true })
