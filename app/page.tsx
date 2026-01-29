@@ -5,13 +5,14 @@ import ExperienceSection from './components/ExperienceSection'
 import ProjectsSection from './components/ProjectsSection'
 import Footer from './components/Footer'
 import BackgroundResume from './components/BackgroundResume'
+import ResumeContainer from './components/ResumeContainer'
 
 export default function Home() {
   return (
     <div className="wrapper">
       <BackgroundResume />
       <div style={{ height: '100vh' }} />
-      <div id="resume" className="container">
+      <ResumeContainer>
         <Header />
 
         <EducationSection />
@@ -22,9 +23,9 @@ export default function Home() {
 
         <ProjectsSection />
 
-        <a 
-          href="/Jason_Xu.pdf" 
-          download="resume.pdf" 
+        <a
+          href="/Jason_Xu.pdf"
+          download="resume.pdf"
           className="download-btn download-btn-fixed"
         >
           <svg
@@ -43,7 +44,7 @@ export default function Home() {
           </svg>
         </a>
         <Footer />
-      </div>
+      </ResumeContainer>
     </div>
   )
 }
