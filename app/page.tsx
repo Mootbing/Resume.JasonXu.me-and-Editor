@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <div className="wrapper">
       <BackgroundResume />
-      
+      <div style={{ height: '100vh' }} />
       <div id="resume" className="container">
         <Header />
 

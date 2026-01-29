@@ -1,17 +1,42 @@
 'use client'
 
+import { useEffect, useRef } from 'react'
+
 export default function BackgroundResume(): JSX.Element {
+  const sectionRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!sectionRef.current) return
+      const scrollY = window.scrollY
+      const fadeEnd = window.innerHeight * 0.6
+      const opacity = Math.max(0, 1 - scrollY / fadeEnd)
+      sectionRef.current.style.opacity = String(opacity)
+      sectionRef.current.style.pointerEvents = opacity < 0.1 ? 'none' : 'auto'
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll()
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
     <section
+      ref={sectionRef}
       className="hero-section"
       style={{
-        minHeight: '100vh',
+        position: 'fixed',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
         padding: '0 24px',
-        position: 'relative',
+        zIndex: 0,
+        width: '100%',
+        maxWidth: '800px',
       }}
     >
       <div style={{ maxWidth: '720px', width: '100%', textAlign: 'center' }}>
