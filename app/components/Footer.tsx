@@ -3,7 +3,7 @@
 const NAV_LINKS = [
   { href: 'https://jasonxu.me', label: 'About Me' },
   { href: 'https://contact.jasonxu.me', label: 'Contact' },
-  { href: "https://portfolio.jasonxu.me", label: "Portfolio {WIP}" }
+  { href: "https://portfolio.jasonxu.me", label: "Portfolio" }
 ] as const
 
 export default function Footer() {
@@ -35,3 +35,4 @@ export default function Footer() {
     </footer>
   )
 }
+
