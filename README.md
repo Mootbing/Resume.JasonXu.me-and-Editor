@@ -1,25 +1,34 @@
 # Resume.JasonXu.Me
 
-A Next.js resume site that renders both the page and the downloadable PDF from a single LaTeX source file (`resume.tex` at the repo root).
+A Next.js resume site that renders the page, the PDF, and the page metadata from a single LaTeX source file (`resume.tex` at the repo root).
 
 ## Make it your own
 
 1. Fork this repo.
-2. **Replace `resume.tex`** at the repo root with your own LaTeX. The existing file uses [Jake Gutierrez's resume template](https://github.com/jakegut/resume) — a solid starting point. Wrap any company/project titles you want clickable in `\href{url}{\underline{Title}}` and they'll become links on the rendered page automatically.
-3. Edit `app/components/Header.tsx` for your own name, contact icons, and socials.
-4. Push to `main` — GitHub Actions compiles `resume.tex` → `public/resume.pdf` and commits it back automatically (see [`.github/workflows/build-pdf.yml`](.github/workflows/build-pdf.yml)).
-5. Deploy (Vercel works out of the box).
+2. **Replace `resume.tex`** at the repo root with your own LaTeX. The existing file uses [Jake Gutierrez's resume template](https://github.com/jakegut/resume) — a solid starting point.
+   - Wrap any company/project titles you want clickable in `\href{url}{\underline{Title}}`.
+   - The `\begin{center}…\end{center}` block at the top is parsed for your name and every `\href` becomes a contact link in the rendered Header. Email/LinkedIn/GitHub/Instagram URLs auto-pick the right icon.
+   - Drop your icon (PNG or SVG) into `public/` and point the `% icon: /your-icon.png` comment at it. That single line drives both the Header avatar and the hero section.
+3. Push to `main` — GitHub Actions compiles `resume.tex` → `public/resume.pdf` and commits it back ([`.github/workflows/build-pdf.yml`](.github/workflows/build-pdf.yml)).
+4. Deploy (Vercel works out of the box).
+
+That's it — no React code edits required for normal personalization. Page `<title>` and meta description also derive from the parsed name, so updating `resume.tex` rebrands the whole site.
 
 ## Live editor
 
-Run `npm run dev` and visit `/edit` for a side-by-side LaTeX editor:
+Run `npm run dev` and visit `/edit`:
 
-- Left pane: textarea with syntax highlighting.
-- Right pane: toggle between the rendered website and a paginated, letter-paper PDF-style preview so you can see if your resume fits on one page.
-- **Save** button downloads your edited `.tex` and opens the GitHub repo so you can drop it in and commit.
+- **Left:** textarea with LaTeX syntax highlighting.
+- **Right:** toggle between the rendered website and a paginated, letter-paper PDF-style preview so you can see if your resume fits on one page.
+- **Save** downloads your edited `.tex` and opens the GitHub repo so you can drop it in and commit.
 
-## How the PDF stays in sync
+## Branding bits that stay hardcoded
 
-There's no `pdflatex` at runtime — instead, a GitHub Actions workflow runs on every push to `main` that touches `resume.tex` and re-compiles `public/resume.pdf` with TeX Live. The download button on the home page just serves that static file.
+A few pieces are presentation/copy and not driven from the `.tex`:
+
+- The `Résumé` heading and `Locally sourced, grass fed projects.` tagline in `app/components/BackgroundResume.tsx`.
+- The footer nav (`About Me` / `Portfolio` / `LinkedIn`) in `app/components/Footer.tsx`.
+
+Edit those directly if you want to change them.
 
 100% vibe coded in Cursor.

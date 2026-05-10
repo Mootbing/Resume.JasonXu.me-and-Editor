@@ -2,7 +2,15 @@
 
 import { useEffect, useRef } from 'react'
 
-export default function BackgroundResume(): JSX.Element {
+interface BackgroundResumeProps {
+  name?: string
+  icon?: string
+}
+
+export default function BackgroundResume({
+  name = 'Resume',
+  icon,
+}: BackgroundResumeProps): JSX.Element {
   const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
@@ -50,15 +58,17 @@ export default function BackgroundResume(): JSX.Element {
             marginBottom: '16px',
           }}
         >
-          <img
-            src="/cow.svg"
-            alt="Cow icon"
-            style={{
-              width: '48px',
-              height: '48px',
-              filter: 'invert(1) brightness(0.75)',
-            }}
-          />
+          {icon && (
+            <img
+              src={icon}
+              alt=""
+              style={{
+                width: '48px',
+                height: '48px',
+                filter: 'invert(1) brightness(0.75)',
+              }}
+            />
+          )}
           <p
             style={{
               fontFamily: 'var(--font-montserrat), sans-serif',
@@ -67,9 +77,10 @@ export default function BackgroundResume(): JSX.Element {
               letterSpacing: '0.1em',
               fontSize: '1rem',
               margin: 0,
+              textTransform: 'uppercase',
             }}
           >
-            JASON XU
+            {name}
           </p>
         </div>
 
