@@ -9,14 +9,16 @@ import Footer from './components/Footer'
 import BackgroundResume from './components/BackgroundResume'
 import ResumeContainer from './components/ResumeContainer'
 import DownloadButton from './components/DownloadButton'
+import EditLink from './components/EditLink'
 import { parseResume } from './utils/parseResume'
 
 export default function Home() {
-  const tex = readFileSync(join(process.cwd(), 'public', 'resume.tex'), 'utf-8')
+  const tex = readFileSync(join(process.cwd(), 'resume.tex'), 'utf-8')
   const data = parseResume(tex)
 
   return (
     <div className="wrapper">
+      <EditLink />
       <BackgroundResume />
       <div style={{ height: '100vh' }} />
       <ResumeContainer>

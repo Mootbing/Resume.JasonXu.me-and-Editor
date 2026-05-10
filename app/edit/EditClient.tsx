@@ -63,6 +63,28 @@ export default function EditClient({ initialTex }: EditClientProps): JSX.Element
       <div className="edit-preview">
         <div className="edit-toggle-bar">
           <button
+            className="edit-save-btn"
+            onClick={() => {
+              const blob = new Blob([tex], { type: 'application/x-tex' })
+              const url = URL.createObjectURL(blob)
+              const a = document.createElement('a')
+              a.href = url
+              a.download = 'resume.tex'
+              document.body.appendChild(a)
+              a.click()
+              a.remove()
+              URL.revokeObjectURL(url)
+              window.open(
+                'https://github.com/Mootbing/Resume.JasonXu.me',
+                '_blank',
+                'noopener,noreferrer'
+              )
+            }}
+            aria-label="Download resume.tex and open the GitHub repo"
+          >
+            Save
+          </button>
+          <button
             className="edit-view-toggle"
             onClick={() => setView((v) => (v === 'website' ? 'pdf' : 'website'))}
             aria-label={`Switch to ${view === 'website' ? 'PDF' : 'website'} preview`}

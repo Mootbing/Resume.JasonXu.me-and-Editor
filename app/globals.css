@@ -132,6 +132,41 @@ body {
   padding: 8px;
 }
 
+/* Fixed top-right "make your own resume site" link */
+.page-edit-link {
+  position: fixed;
+  top: 24px;
+  right: 28px;
+  z-index: 1000;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 4px;
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 0.72em;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  color: #888;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.page-edit-link:hover {
+  color: #333;
+}
+.page-edit-link svg {
+  flex-shrink: 0;
+}
+
+@media (max-width: 800px) {
+  .page-edit-link {
+    top: 16px;
+    right: 16px;
+  }
+  .page-edit-link-text {
+    display: none;
+  }
+}
+
 .download-btn:hover,
 .download-btn:focus,
 .download-btn:active {
@@ -661,7 +696,7 @@ h2 {
     font-size: 0.8em;
     white-space: normal;
   }
-  a[href*="Jason_Xu.pdf"] {
+  a[href*="resume.pdf"] {
     top: 20px !important;
     right: 20px !important;
   }
@@ -743,6 +778,7 @@ h2 {
   top: -40px;
   display: flex;
   justify-content: flex-end;
+  gap: 8px;
   margin: -40px -40px 16px -40px;
   padding: 16px 40px 8px 40px;
   background: linear-gradient(to bottom, #fff 0%, #fff 70%, rgba(255,255,255,0) 100%);
@@ -765,6 +801,25 @@ h2 {
 .edit-view-toggle:hover {
   color: #333;
   border-color: rgba(0, 0, 0, 0.35);
+}
+
+.edit-save-btn {
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 0.72em;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  background: #333;
+  border: 1px solid #333;
+  border-radius: 20px;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.edit-save-btn:hover {
+  background: #000;
+  border-color: #000;
 }
 
 /* Paginated PDF-style preview */

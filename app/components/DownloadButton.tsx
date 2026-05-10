@@ -1,34 +1,8 @@
-'use client'
-
-import { MouseEvent } from 'react'
-
-const STATIC_PDF = '/Jason_Xu.pdf'
-
 export default function DownloadButton(): JSX.Element {
-  const handleClick = async (e: MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault()
-    try {
-      const r = await fetch('/api/download-resume')
-      if (!r.ok) throw new Error(`status ${r.status}`)
-      const blob = await r.blob()
-      const url = URL.createObjectURL(blob)
-      const a = document.createElement('a')
-      a.href = url
-      a.download = 'Jason_Xu.pdf'
-      document.body.appendChild(a)
-      a.click()
-      a.remove()
-      URL.revokeObjectURL(url)
-    } catch {
-      window.location.href = STATIC_PDF
-    }
-  }
-
   return (
     <a
-      href={STATIC_PDF}
-      onClick={handleClick}
-      download="Jason_Xu.pdf"
+      href="/resume.pdf"
+      download="resume.pdf"
       className="download-btn download-btn-fixed"
     >
       <svg
