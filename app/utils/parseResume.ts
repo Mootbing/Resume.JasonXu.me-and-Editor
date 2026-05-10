@@ -156,9 +156,14 @@ function extractLinkedTitle(raw: string): LinkedTitle {
   return { text: cleanTex(raw) }
 }
 
-function parseHeader(src: string): ResumeHeader {
+function parseHeaderIcon(rawSrc: string): string | undefined {
+  const m = rawSrc.match(/^[ \t]*%[ \t]*icon[ \t]*:[ \t]*(\S+)[ \t]*$/m)
+  return m?.[1]
+}
+
+function parseHeader(src: string, rawSrc: string): ResumeHeader {
   const blockMatch = src.match(/\\begin\{center\}([\s\S]*?)\\end\{center\}/)
-  if (!blockMatch) return { name: '', contacts: [] }
+  if (!blockMatch) return { name: '', contacts: [], icon: parseHeaderIcon(rawSrc) }
   const block = blockMatch[1]
 
   let name = ''
@@ -194,7 +199,7 @@ function parseHeader(src: string): ResumeHeader {
       break
     }
   }
-  return { name, contacts }
+  return { name, contacts, icon: parseHeaderIcon(rawSrc) }
 }
 
 function splitSections(src: string): { title: string; body: string }[] {
@@ -288,7 +293,7 @@ export function parseResume(tex: string): ParsedResume {
   const cleaned = stripLineComments(truncated)
   const sections = splitSections(cleaned)
   const result: ParsedResume = {
-    header: parseHeader(cleaned),
+    header: parseHeader(cleaned, truncated),
     education: [],
     skills: { languages: [], tools: [], flat: [] },
     experience: [],

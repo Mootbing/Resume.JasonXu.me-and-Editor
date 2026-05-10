@@ -96,7 +96,7 @@ export default function EditClient({ initialTex }: EditClientProps): JSX.Element
         {data && (
           view === 'website' ? (
             <>
-              <Header />
+              <Header header={data.header} />
               <EducationSection items={data.education} />
               <SkillsSection skills={data.skills.flat} />
               <ExperienceSection items={data.experience} />

@@ -22,7 +22,7 @@ export default function Home() {
       <BackgroundResume />
       <div style={{ height: '100vh' }} />
       <ResumeContainer>
-        <Header />
+        <Header header={data.header} />
 
         <EducationSection items={data.education} />
 
