@@ -5,11 +5,15 @@ import { useEffect, useRef } from 'react'
 interface BackgroundResumeProps {
   name?: string
   icon?: string
+  title?: string
+  subtitle?: string
 }
 
 export default function BackgroundResume({
   name = 'Resume',
   icon,
+  title = 'Résumé',
+  subtitle = '',
 }: BackgroundResumeProps): JSX.Element {
   const sectionRef = useRef<HTMLElement>(null)
 
@@ -97,21 +101,23 @@ export default function BackgroundResume({
             display: 'block',
           }}
         >
-          Résumé
+          {title}
         </p>
 
         {/* Subtitle */}
-        <p
-          style={{
-            color: '#666',
-            lineHeight: 1.7,
-            fontSize: '1rem',
-            maxWidth: '540px',
-            margin: '0 auto',
-          }}
-        >
-          Locally sourced, grass fed projects.
-        </p>
+        {subtitle && (
+          <p
+            style={{
+              color: '#666',
+              lineHeight: 1.7,
+              fontSize: '1rem',
+              maxWidth: '540px',
+              margin: '0 auto',
+            }}
+          >
+            {subtitle}
+          </p>
+        )}
       </div>
 
     </section>

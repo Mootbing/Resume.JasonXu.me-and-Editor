@@ -156,14 +156,23 @@ function extractLinkedTitle(raw: string): LinkedTitle {
   return { text: cleanTex(raw) }
 }
 
-function parseHeaderIcon(rawSrc: string): string | undefined {
-  const m = rawSrc.match(/^[ \t]*%[ \t]*icon[ \t]*:[ \t]*(\S+)[ \t]*$/m)
-  return m?.[1]
+function parseHeaderDirective(rawSrc: string, key: string): string | undefined {
+  const re = new RegExp(`^[ \\t]*%[ \\t]*${key}[ \\t]*:[ \\t]*(.+?)[ \\t\\r]*$`, 'm')
+  return rawSrc.match(re)?.[1]?.trim() || undefined
+}
+
+function readHeaderDirectives(rawSrc: string) {
+  return {
+    icon: parseHeaderDirective(rawSrc, 'icon'),
+    title: parseHeaderDirective(rawSrc, 'title'),
+    subtitle: parseHeaderDirective(rawSrc, 'subtitle'),
+  }
 }
 
 function parseHeader(src: string, rawSrc: string): ResumeHeader {
+  const directives = readHeaderDirectives(rawSrc)
   const blockMatch = src.match(/\\begin\{center\}([\s\S]*?)\\end\{center\}/)
-  if (!blockMatch) return { name: '', contacts: [], icon: parseHeaderIcon(rawSrc) }
+  if (!blockMatch) return { name: '', contacts: [], ...directives }
   const block = blockMatch[1]
 
   let name = ''
@@ -199,7 +208,7 @@ function parseHeader(src: string, rawSrc: string): ResumeHeader {
       break
     }
   }
-  return { name, contacts, icon: parseHeaderIcon(rawSrc) }
+  return { name, contacts, ...directives }
 }
 
 function splitSections(src: string): { title: string; body: string }[] {

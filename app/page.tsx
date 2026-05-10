@@ -19,7 +19,12 @@ export default function Home() {
   return (
     <div className="wrapper">
       <EditLink />
-      <BackgroundResume name={data.header.name} icon={data.header.icon} />
+      <BackgroundResume
+        name={data.header.name}
+        icon={data.header.icon}
+        title={data.header.title}
+        subtitle={data.header.subtitle}
+      />
       <div style={{ height: '100vh' }} />
       <ResumeContainer>
         <Header header={data.header} />

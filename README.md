@@ -9,6 +9,7 @@ A Next.js resume site that renders the page, the PDF, and the page metadata from
    - Wrap any company/project titles you want clickable in `\href{url}{\underline{Title}}`.
    - The `\begin{center}…\end{center}` block at the top is parsed for your name and every `\href` becomes a contact link in the rendered Header. Email/LinkedIn/GitHub/Instagram URLs auto-pick the right icon.
    - Drop your icon (PNG or SVG) into `public/` and point the `% icon: /your-icon.png` comment at it. That single line drives both the Header avatar and the hero section.
+   - The `% title:` and `% subtitle:` comments next to `% icon:` set the big hero heading and the tagline below it (defaults: `Résumé` / `Locally sourced, grass fed projects.`).
 3. Push to `main` — GitHub Actions compiles `resume.tex` → `public/resume.pdf` and commits it back ([`.github/workflows/build-pdf.yml`](.github/workflows/build-pdf.yml)).
 4. Deploy (Vercel works out of the box).
 
@@ -24,11 +25,6 @@ Run `npm run dev` and visit `/edit`:
 
 ## Branding bits that stay hardcoded
 
-A few pieces are presentation/copy and not driven from the `.tex`:
-
-- The `Résumé` heading and `Locally sourced, grass fed projects.` tagline in `app/components/BackgroundResume.tsx`.
-- The footer nav (`About Me` / `Portfolio` / `LinkedIn`) in `app/components/Footer.tsx`.
-
-Edit those directly if you want to change them.
+The footer nav (`About Me` / `Portfolio` / `LinkedIn`) lives in `app/components/Footer.tsx`. Edit it directly if you want different links.
 
 100% vibe coded in Cursor.

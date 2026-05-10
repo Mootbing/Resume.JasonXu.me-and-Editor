@@ -12,6 +12,8 @@ export interface ResumeHeader {
   name: string
   contacts: HeaderContact[]
   icon?: string
+  title?: string
+  subtitle?: string
 }
 
 export interface EducationEntry {
