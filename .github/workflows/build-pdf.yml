@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'resume.tex'
+      - 'REPLACE_ME_resume.tex'
       - '.github/workflows/build-pdf.yml'
   workflow_dispatch:
 
@@ -21,10 +21,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Compile resume.tex with pdflatex
+      - name: Compile REPLACE_ME_resume.tex with pdflatex
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: resume.tex
+          root_file: REPLACE_ME_resume.tex
           working_directory: .
           latexmk_use_xelatex: false
           args: -pdf -interaction=nonstopmode -halt-on-error -file-line-error
@@ -32,7 +32,7 @@ jobs:
       - name: Move PDF into public/
         run: |
           mkdir -p public
-          mv resume.pdf public/resume.pdf
+          mv REPLACE_ME_resume.pdf public/resume.pdf
 
       - name: Commit PDF if changed
         run: |

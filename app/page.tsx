@@ -13,7 +13,7 @@ import EditLink from './components/EditLink'
 import { parseResume } from './utils/parseResume'
 
 export default function Home() {
-  const tex = readFileSync(join(process.cwd(), 'resume.tex'), 'utf-8')
+  const tex = readFileSync(join(process.cwd(), 'REPLACE_ME_resume.tex'), 'utf-8')
   const data = parseResume(tex)
 
   return (
