@@ -3,36 +3,11 @@
 import { useState } from 'react'
 import { ANIMATION_DELAY_STANDARD, ANIMATION_DELAY_COMPLETE } from '../constants/animation'
 
-const skills = [
-  // Languages
-  'Python',
-  'JavaScript',
-  'Java',
-  'C++',
-  'TypeScript',
-  'Flutter',
-  'Tailwind',
-  'HTML',
-  'CSS',
-  'OCaml',
-  // Tools
-  'Expo',
-  'React Native',
-  'React',
-  'Next.js',
-  'Vercel',
-  'Supabase',
-  'Firebase',
-  'Figma',
-  'CI/CD',
-  'REST',
-  'Git',
-  'GCP',
-  'AWS',
-  'Azure',
-]
+interface SkillsSectionProps {
+  skills: string[]
+}
 
-export default function SkillsSection(): JSX.Element {
+export default function SkillsSection({ skills }: SkillsSectionProps): JSX.Element {
   const [isCollapsed, setIsCollapsed] = useState(false)
   const [isAnimating, setIsAnimating] = useState(false)
 

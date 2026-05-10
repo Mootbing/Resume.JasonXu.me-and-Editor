@@ -666,3 +666,292 @@ h2 {
     right: 20px !important;
   }
 }
+
+/* /edit page — LaTeX editor with live preview */
+.edit-layout {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background: #fff;
+}
+
+.edit-textarea-wrap {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  background: #fafafa;
+  border-right: 1px solid rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.edit-textarea-highlight,
+.edit-textarea {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 24px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 13px;
+  line-height: 1.55;
+  white-space: pre;
+  word-wrap: normal;
+  overflow-wrap: normal;
+  tab-size: 2;
+  border: none;
+  box-sizing: border-box;
+  letter-spacing: 0;
+}
+
+.edit-textarea-highlight {
+  pointer-events: none;
+  overflow: auto;
+  color: #333;
+  background: transparent;
+  user-select: none;
+  scrollbar-width: none;
+}
+.edit-textarea-highlight::-webkit-scrollbar {
+  display: none;
+}
+
+.edit-textarea {
+  resize: none;
+  outline: none;
+  color: transparent;
+  background: transparent;
+  caret-color: #333;
+  overflow: auto;
+}
+.edit-textarea::selection {
+  background: rgba(111, 66, 193, 0.2);
+}
+
+.tex-comment { color: #9aa0a6; font-style: italic; }
+.tex-command { color: #6f42c1; }
+.tex-brace   { color: #b0b0b0; }
+.tex-math    { color: #d97706; }
+.tex-escape  { color: #d97706; }
+.tex-text    { color: #333; }
+
+/* Toggle bar inside the preview pane */
+.edit-toggle-bar {
+  position: sticky;
+  top: -40px;
+  display: flex;
+  justify-content: flex-end;
+  margin: -40px -40px 16px -40px;
+  padding: 16px 40px 8px 40px;
+  background: linear-gradient(to bottom, #fff 0%, #fff 70%, rgba(255,255,255,0) 100%);
+  z-index: 10;
+}
+.edit-view-toggle {
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 0.72em;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #666;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+.edit-view-toggle:hover {
+  color: #333;
+  border-color: rgba(0, 0, 0, 0.35);
+}
+
+/* Paginated PDF-style preview */
+.lx-paper-stack {
+  background: #e8e8e8;
+  margin: -16px -40px;
+  padding: 24px 0 32px;
+  min-height: calc(100% + 32px);
+  position: relative;
+}
+
+.lx-pages {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.lx-page-outer {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.lx-page-frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #fff;
+  padding: 0.5in;
+  font-family: "Latin Modern Roman", "Computer Modern Serif", "Times New Roman", Times, serif;
+  font-size: 11pt;
+  line-height: 1.25;
+  color: #000;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.lx-page-content {
+  height: 100%;
+}
+
+.lx-page-num {
+  position: absolute;
+  bottom: 0.3in;
+  right: 0.4in;
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 9pt;
+  font-weight: 300;
+  color: #aaa;
+  letter-spacing: 0.04em;
+}
+
+.lx-measure {
+  position: absolute;
+  visibility: hidden;
+  pointer-events: none;
+  top: 0;
+  left: -10000px;
+  font-family: "Latin Modern Roman", "Computer Modern Serif", "Times New Roman", Times, serif;
+  font-size: 11pt;
+  line-height: 1.25;
+  color: #000;
+}
+
+.lx-block {
+  /* Each block is treated atomically — keeps section title with first entry */
+}
+
+.lx-head {
+  text-align: center;
+  margin-bottom: 4pt;
+}
+.lx-name {
+  font-variant: small-caps;
+  font-size: 26pt;
+  font-weight: bold;
+  letter-spacing: 0.01em;
+  margin: 0 0 4pt 0;
+  line-height: 1.05;
+}
+.lx-contact {
+  font-size: 10pt;
+}
+.lx-link {
+  color: inherit;
+  text-decoration: none;
+}
+.lx-underline {
+  text-decoration: underline;
+}
+.lx-sep {
+  color: #000;
+  white-space: pre;
+}
+
+.lx-section {
+  margin-top: 8pt;
+}
+.lx-sec-title {
+  font-variant: small-caps;
+  font-size: 13pt;
+  font-weight: normal;
+  margin: 0 0 1pt 0;
+  border-bottom: 0.5pt solid #000;
+  padding-bottom: 1pt;
+  letter-spacing: 0.01em;
+}
+
+.lx-sub {
+  margin: 4pt 0 6pt 0.15in;
+}
+.lx-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12pt;
+}
+.lx-right {
+  text-align: right;
+  white-space: nowrap;
+}
+.lx-bot { font-size: 10pt; }
+.lx-proj { font-size: 10pt; }
+.lx-pipe { padding: 0 2pt; }
+
+.lx-skills {
+  margin-left: 0.15in;
+  font-size: 10pt;
+}
+.lx-skills > div { margin: 1pt 0; }
+
+.lx-bullets {
+  margin: 2pt 0 0 0.4in;
+  padding: 0;
+  list-style: disc;
+  font-size: 10pt;
+}
+.lx-bullets li {
+  margin: 0 0 1pt 0;
+  padding-left: 2pt;
+}
+
+.edit-preview {
+  width: 50%;
+  height: 100%;
+  overflow-y: auto;
+  padding: 40px;
+  background: #fff;
+}
+
+.edit-preview > section,
+.edit-preview > header {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.edit-error-banner {
+  max-width: 800px;
+  margin: 0 auto 16px;
+  padding: 10px 16px;
+  background: #fff4f4;
+  color: #a40000;
+  border: 1px solid #f0c0c0;
+  border-radius: 6px;
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 0.85em;
+  font-weight: 300;
+}
+
+@media (max-width: 800px) {
+  .edit-layout {
+    flex-direction: column;
+    height: auto;
+    overflow: visible;
+  }
+  .edit-textarea-wrap {
+    width: 100%;
+    height: 50vh;
+    border-right: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  }
+  .edit-preview {
+    width: 100%;
+    height: auto;
+    padding: 24px;
+  }
+}

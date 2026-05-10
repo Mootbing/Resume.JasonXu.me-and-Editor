@@ -1,8 +1,14 @@
 'use client'
 
 import CollapsibleSection from './CollapsibleSection'
+import TitleLink from './TitleLink'
+import { ProjectEntry } from '../utils/resumeTypes'
 
-export default function ProjectsSection(): JSX.Element {
+interface ProjectsSectionProps {
+  items: ProjectEntry[]
+}
+
+export default function ProjectsSection({ items }: ProjectsSectionProps): JSX.Element {
   return (
     <CollapsibleSection
       id="projectsSection"
@@ -10,49 +16,26 @@ export default function ProjectsSection(): JSX.Element {
       toggleClassName="projects-toggle"
       contentClassName="projects-content"
     >
-      <div className="experience-item">
-        <div className="experience-header">
-          <a href="https://yc-ai-sus-search-engine.vercel.app/" target="_blank" rel="noopener noreferrer" className="experience-title-link experience-link">
-            <span className="experience-title">
-              YCombinator Startup School Network
-            </span>
-          </a>
-          <span className="experience-date">June - August 2025</span>
+      {items.map((item, idx) => (
+        <div key={idx} className="experience-item">
+          <div className="experience-header">
+            <TitleLink title={item.title} />
+            <span className="experience-date">{item.date}</span>
+          </div>
+          <div className="experience-company">{item.techStack}</div>
+          <div className="experience-desc">
+            {item.displayAsParagraph && item.bullets.length === 1 ? (
+              item.bullets[0]
+            ) : (
+              <ul>
+                {item.bullets.map((bullet, bidx) => (
+                  <li key={bidx}>{bullet}</li>
+                ))}
+              </ul>
+            )}
+          </div>
         </div>
-        <div className="experience-company">Next.js, Vercel, Pinecone</div>
-        <div className="experience-desc">
-          <ul>
-            <li>Developed vector-embedded database of 1240+ users and conversation logs for semantic querying by YC students</li>
-            <li>Created front-end search portal in Next.js, using Firebase Auth to stop spam queries and bots</li>
-            <li>Launched on LinkedIn with 300k+ views, 700+ new followers, and 452 registered, active users</li>
-          </ul>
-        </div>
-      </div>
-      <div className="experience-item">
-        <div className="experience-header">
-          <a href="https://insta.jasonxu.me" target="_blank" rel="noopener noreferrer" className="experience-title-link experience-link">
-            <span className="experience-title">Content Strategist</span>
-          </a>
-          <span className="experience-date">May - August 2025</span>
-        </div>
-        <div className="experience-company">Vibes</div>
-        <div className="experience-desc">
-          300k+ views on IG (@bing.mov), 250k+ views on YT (@cowland-game-studios), closed deals with Blackbox.ai
-        </div>
-      </div>
-      <div className="experience-item">
-        <div className="experience-header">
-          <a href="https://17.jasonxu.me" target="_blank" rel="noopener noreferrer" className="experience-title-link experience-link">
-            <span className="experience-title">17.JasonXu.me</span>
-          </a>
-          <span className="experience-date">August 2023 – Present</span>
-        </div>
-        <div className="experience-company">Next.js, Vercel</div>
-        <div className="experience-desc">
-          10k+ hits, awarded design accolades (site of the day) from
-          CSSDesign Awards, CSSFox, AWWWards
-        </div>
-      </div>
+      ))}
     </CollapsibleSection>
   )
 }

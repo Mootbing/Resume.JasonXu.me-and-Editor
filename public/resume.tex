@@ -1,0 +1,200 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez (with Jason Xu's content and original bolding)
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\input{glyphtounicode}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge \scshape Jason Xu} \\ \vspace{1pt}
+    
+    \href{mailto:him@jasonxu.me}{\underline{him@jasonxu.me}} $|$
+    \href{https://linkedin.jasonxu.me/}{\underline{linkedin.com/in/xj1}} $|$
+    \href{https://github.jasonxu.me}{\underline{github.com/mootbing}} $|$
+    \href{https://jasonxu.me/}{\underline{jasonxu.me}}
+\end{center}
+
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {University of Pennsylvania, School of Engineering and Applied Science}{Philadelphia, PA}
+      {Candidate for Bachelor of Science in Computer Science}{2024 - 2028}
+       \begin{itemize}[leftmargin=0.1in, label={}]
+ \end{itemize}
+  \resumeSubHeadingListEnd
+
+
+%-----------PROGRAMMING SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: Python, Java/Typescript (React \& Next), Java, C++, HTML, CSS, Tailwind, OCaml, SQL, Unreal Engine} \\
+     \textbf{Tools}{: Expo, React Native, Git, Firebase, Supabase, Hasura, GraphQL, Postgres, AWS, GCP, Azure, CI/CD, Figma} \\
+    }}
+ \end{itemize}
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+\resumeSubheading
+    {Founder in Residence}{San Francisco, PA}
+      {\href{https://photon.codes}{\underline{Photon.codes}}}{December 2025 - January 2026}
+      \resumeItemListStart
+        \resumeItem{Designed and built tryFlux.ai, agentic-coding IDE for iMessage agents with Next.js, LangChain, and iMessage-kit}
+        \resumeItem{Introduced nested Docker container design for resource sharing between agents, reducing 75\% compute costs}
+        \resumeItem{Hit \#1 on Product Hunt (350+ upvotes) in 24-hours of launch. Generated 1.5M+ views across social media.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {\#2 Founding Engineer}{New York, NY}
+      {\href{https://icon.com}{\underline{Icon.com}}}{October 2025 - November 2025}
+      \resumeItemListStart
+        \resumeItem{Reduced onboarding times 25\% by building brand ingestion engine with BrowserBase, PostgreSQL, Supermemory}
+        \resumeItem{Reduced ad generation mistakes 75\% by building strategist review pipeline with Next, SQL, and Slack Webhooks}
+        \resumeItem{Prevented 20+ possible client churns, saving \$50k+ MRR implementing client-product feedback with sales team}
+      \resumeItemListEnd
+
+      \resumeSubheading
+      {Co-founder}{New York, NY}
+      {Moonbeam}{June 2025 - October 2025}
+      \resumeItemListStart
+        \resumeItem{Built full-stack career planning app 50\% more relevant than LinkedIn search using NLP to analyze resumes for a given role, generating a custom timeline by modeling the career paths of professionals with similar backgrounds}
+        \resumeItem{Queried 150M+ LinkedIn profiles with Clado, storage in Supabase and front-end built with Next.js and Vercel}
+        \resumeItem{Created Flutter mobile app Linge (Tinder x LinkedIn x Hinge) to match users with coffee chats using NLP }
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Founder}{New York, NY}
+      {\href{https://gnec.ngo/hackathon}{\underline{GNEC Hackathon}}}{January 2023 -- Present}
+      \resumeItemListStart
+        \resumeItem{Founded 5,000+ participant hackathon spanning 85+ countries in 5 seasons with \$250,000 in prizes}
+        \resumeItem{Built AWS EC2-hosted sponsor agent with BeautifulSoup4 and STMP, reaching 5,400+ potential partners}
+        \resumeItem{Wrote LLM-integrated scripts to aide judging, paired winning projects with internships at 1,600 UN NGOs}
+        \resumeItem{Invited speaker at the United Nations' 69th Civil Society Conference in Nairobi, Kenya United Nations}
+      \resumeItemListEnd
+
+     \resumeSubheading
+      {Software Engineer}{New York, NY}
+      {\href{https://un.org}{\underline{United Nations}}}{July 2022 -- August 2024}
+      \resumeItemListStart
+        \resumeItem{Used Google Analytics and Google Maps API to develop refugee-aide tracking resource map}
+        \resumeItem{Hybridized Firestore for location storage and RTDB as proxies, optimizing query speed 23\% overall}
+        \resumeItem{Developed whitelist system with Firebase Authentication and React admin dashboard for UN personnel}
+        \resumeItem{Monitored security and inaccuracies with Cloud Logging, bulk-correcting locations with Python admin scripts}
+        \resumeItem{Implemented geo-hashing algorithm with regional pre-indexing, reducing 66\% of database query costs}
+      \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart
+
+      \resumeProjectHeading
+          {\href{https://yc-ai-sus-search-engine.vercel.app/}{\underline{\textbf{YCombinator Startup School Network}}} $|$ \emph{Next.js, Vercel, Pinecone}}{June - August 2025}
+          \resumeItemListStart
+            \resumeItem{Developed vector-embedded database of 1240+ users and conversation logs for semantic querying by YC students}
+            \resumeItem{Created front-end search portal in Next.js, using Firebase Auth to stop spam queries and bots}
+            \resumeItem{Launched on LinkedIn with 300k+ views, 700+ new followers, and 452 registered, active users}
+          \resumeItemListEnd
+
+       \resumeProjectHeading
+          {\href{https://insta.jasonxu.me}{\underline{\textbf{Content Strategist}}} $|$ \emph{Vibes}}{May - August 2025}
+          \resumeItemListStart
+            \resumeItem{300k+ views on IG (@bing.mov), 250k+ views on YT (@cowland-game-studios), closed deals with Blackbox.ai}
+          \resumeItemListEnd
+
+    \resumeProjectHeading
+          {\href{https://17.jasonxu.me}{\underline{\textbf{17.JasonXu.me}}} $|$ \emph{Next.js, Vercel}}{August 2023 -- Present}
+          \resumeItemListStart
+            \resumeItem{10k+ hits, awarded design accolades (site of the day) from CSSDesign Awards, CSSFox, AWWWards}
+          \resumeItemListEnd
+
+    \resumeSubHeadingListEnd
+
+
+%-------------------------------------------
+\end{document}
